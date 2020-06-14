@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div>
+            {{ biodata }}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vo = new Vue({
+            el: '#app',
+            data: {
+                name: 'Pace',
+                age: 24,
+            },
+            computed: {
+                biodata: {
+                    get: function () {
+                        return this.name + " berumur " + this.age
+                    },
+                    set: function (params) {
+                        var cridential = params.split(' ')
+                        this.name = cridential[0]
+                        this.age = cridential[1]
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
